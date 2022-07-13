@@ -195,7 +195,7 @@ class PlayState extends MusicBeatState
 	
 	var balls:FlxSprite;
 	var bg1:FlxSprite;
-	var bg2:FlxSprite;
+	
 
 	#if windows
 	var storyDifficultyText:String = "";
