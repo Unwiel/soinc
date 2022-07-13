@@ -196,6 +196,8 @@ class PlayState extends MusicBeatState
 	var balls:FlxSprite;
 	var bg1:FlxSprite;
     var ok1:FlxSprite; 
+    var startCircle:FlxSprite;
+    var blackFuck:FlxSprite; 
 	
 
 	#if windows
@@ -261,6 +263,9 @@ class PlayState extends MusicBeatState
 		{
 			detailsText = "Freeplay";
 		}
+		
+		startCircle = new FlxSprite();
+		blackFuck = new FlxSprite().makeGraphic(1280, 720, FlxColor.BLACK);
 
 		// String for when the game is paused
 		detailsPausedText = "Paused - " + detailsText;
@@ -537,12 +542,12 @@ class PlayState extends MusicBeatState
 				dad.x = 200;
 			
 			case 'sunkStage':
-			    dad.x = 50;	 
-				dad.y = 300;	 
-				boyfriend.y = 550;
-				boyfriend.x = 820;
-				gf.x += 210;
-				gf.y -= 20;
+			    dad.x = -100;	 
+				dad.y = 500;	 
+				boyfriend.y = 500;
+				boyfriend.x = 780;
+				gf.x -= 210;
+				gf.y += 20;
 
 			case 'tailsp2':
 				camHUD.alpha = 0;	
@@ -660,16 +665,8 @@ class PlayState extends MusicBeatState
 				healthBar.createFilledBar(0xFFFF9100, 0xFF1FE5FF);	
 				
 			case 'milk':
-				healthBar.createFilledBar(0x2648FB, 0x31B0D1);	
-				cpuStrums.forEach(function(spr:FlxSprite)
-				{
-					FlxTween.tween(spr, {x: spr.x -= 400, y: spr.y}, 5, {ease: FlxEase.quartOut});
-				});
+				healthBar.createFilledBar(0xFF2648FB, 0xFF31B0D1);	
 				
-				playerStrums.forEach(function(spr:FlxSprite)
-				{
-				     FlxTween.tween(spr, {x: spr.x += 300, y: spr.y}, 5, {ease: FlxEase.quartOut});
-				});
 		}
 
 		scoreTxt = new FlxText(FlxG.width / 2 - 235, healthBarBG.y + 50, 0, "", 20);
@@ -760,8 +757,38 @@ class PlayState extends MusicBeatState
 		{
 			switch (curSong.toLowerCase())
 			{
+			    
 				default:
 					startCountdown();
+			}
+			else if (curSong.toLowerCase() == 'milk')
+			{
+			    cpuStrums.forEach(function(spr:FlxSprite)
+				{
+					FlxTween.tween(spr, {x: spr.x += 350, y: spr.y}, 5, {ease: FlxEase.quartOut});
+				});
+				
+				playerStrums.forEach(function(spr:FlxSprite)
+				{
+				     FlxTween.tween(spr, {x: spr.x -= 300, y: spr.y}, 5, {ease: FlxEase.quartOut});
+				});
+				add(blackFuck);
+				startCircle.loadGraphic(Paths.image('StartScreens/Sunky', 'exe'));
+				startCircle.scale.x = 0;
+				startCircle.x += 50;
+				add(startCircle);
+				new FlxTimer().start(0.6, function(tmr:FlxTimer)
+				{
+					FlxTween.tween(startCircle.scale, {x: 1}, 0.2, {ease: FlxEase.elasticOut});
+					FlxG.sound.play(Paths.sound('flatBONK', 'exe'));
+				});
+
+				new FlxTimer().start(1.9, function(tmr:FlxTimer)
+				{
+					FlxTween.tween(blackFuck, {alpha: 0}, 1);
+					FlxTween.tween(startCircle, {alpha: 0}, 1);
+					startSong();
+				});
 			}
 		}
 
