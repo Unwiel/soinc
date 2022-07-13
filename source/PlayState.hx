@@ -456,13 +456,13 @@ class PlayState extends MusicBeatState
 				curStage = 'sunkStage';
 				 
 				bg = new FlxSprite(-200, -100).loadGraphic(Paths.image('sunky/sunky BG', 'exe'));
-				add(bg) 
+				add(bg);
 				
 				bg2 = new FlxSprite(-200, -100).loadGraphic(Paths.image('sunky/stage', 'exe'));
-				add(bg2) 
+				add(bg2);
 				
 				balls = new FlxSprite(50, -500).loadGraphic(Paths.image('sunky/ball', 'exe'));
-				add(balls) 
+				add(balls);
 
 			default:
 				defaultCamZoom = 0.9;
