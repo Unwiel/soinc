@@ -547,7 +547,7 @@ class PlayState extends MusicBeatState
 			    dad.x = -80;	 
 				dad.y = 520;	 
 				boyfriend.y = 500;
-				boyfriend.x = 680;
+				boyfriend.x = 920;
 				gf.x -= 100;
 				gf.y += 150;
 
@@ -782,12 +782,12 @@ class PlayState extends MusicBeatState
 				
 				        cpuStrums.forEach(function(spr:FlxSprite)
 				        {
-					       FlxTween.tween(spr, {x: spr.x += 300, y: spr.y}, 0.1, {ease: FlxEase.quartOut});
+					       FlxTween.tween(spr, {x: spr.x += 500, y: spr.y}, 0.1, {ease: FlxEase.quartOut});
 				        });
 				
 				       playerStrums.forEach(function(spr:FlxSprite)
 				       {
-				           FlxTween.tween(spr, {x: spr.x -= 200, y: spr.y}, 0.1, {ease: FlxEase.quartOut});
+				           FlxTween.tween(spr, {x: spr.x -= 400, y: spr.y}, 0.1, {ease: FlxEase.quartOut});
 				       });
 				
 				
@@ -1827,7 +1827,7 @@ Wilde\n\n';
 						camFollow.y = dad.getMidpoint().y;
 						camFollow.x = dad.getMidpoint().x + 160;
 				    case 'sunkStage':
-						camFollow.x = dad.getMidpoint().x + 100;
+						camFollow.x = dad.getMidpoint().x + 300;
 				}
 
 				camFollow.y += camY;
