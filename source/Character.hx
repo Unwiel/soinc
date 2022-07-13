@@ -405,7 +405,7 @@ class Character extends FlxSprite
 				animation.addByPrefix('singDOWN', 'singDOWN0', 24, false);
 				animation.addByPrefix('singUPmiss', 'singUPmiss', 24, false);
 				animation.addByPrefix('singLEFTmiss', 'singLEFTmiss', 24, false);
-				animation.addByPrefix('singRIGHTmiss', 'singRIGHTmiss, 24, false);
+				animation.addByPrefix('singRIGHTmiss', 'singRIGHTmiss', 24, false);
 				animation.addByPrefix('singDOWNmiss', 'singDOWNmiss', 24, false);
 				animation.addByPrefix('hey', 'BF HEY', 24, false);
 
