@@ -264,9 +264,7 @@ class PlayState extends MusicBeatState
 			detailsText = "Freeplay";
 		}
 		
-		startCircle = new FlxSprite();
-		blackFuck = new FlxSprite().makeGraphic(1280, 720, FlxColor.BLACK);
-
+		
 		// String for when the game is paused
 		detailsPausedText = "Paused - " + detailsText;
 
@@ -294,6 +292,10 @@ class PlayState extends MusicBeatState
 		//var sploosh = new NoteSplash(100, 100, 0);
 		//sploosh.alpha = 0.6;
 		//grpNoteSplashes.add(sploosh);
+		
+		blackFuck = new FlxSprite().makeGraphic(1280, 720, FlxColor.BLACK);
+
+		startCircle = new FlxSprite();
 
 		Conductor.mapBPMChanges(SONG);
 		Conductor.changeBPM(SONG.bpm);
@@ -710,6 +712,8 @@ class PlayState extends MusicBeatState
 		iconP2.cameras = [camHUD];
 		scoreTxt.cameras = [camHUD];
 		doof.cameras = [camHUD];
+		startCircle.cameras = [camDialogue];
+		blackFuck.cameras = [camDialogue]; 
 		if (FlxG.save.data.songPosition)
 		{
 			songPosBG.cameras = [camHUD];
@@ -757,16 +761,7 @@ class PlayState extends MusicBeatState
 		{
 		    if (curSong.toLowerCase() == 'milk')
 			{
-			
-			    cpuStrums.forEach(function(spr:FlxSprite)
-				{
-					FlxTween.tween(spr, {x: spr.x += 350, y: spr.y}, 5, {ease: FlxEase.quartOut});
-				});
-				
-				playerStrums.forEach(function(spr:FlxSprite)
-				{
-				     FlxTween.tween(spr, {x: spr.x -= 300, y: spr.y}, 5, {ease: FlxEase.quartOut});
-				});
+			    startCountdown();
 				add(blackFuck);
 				startCircle.loadGraphic(Paths.image('StartScreens/Sunky', 'exe'));
 				startCircle.scale.x = 0;
@@ -782,10 +777,12 @@ class PlayState extends MusicBeatState
 				{
 					FlxTween.tween(blackFuck, {alpha: 0}, 1);
 					FlxTween.tween(startCircle, {alpha: 0}, 1);
-					startSong();
+					
 				});
+				
+				
 			}
-			switch (curSong)
+			switch (curSong.toLowerCase())
 			{
 			    
 				default:
@@ -1819,6 +1816,16 @@ Wilde\n\n';
 					case 'too-slow':
 						camFollow.y = dad.getMidpoint().y;
 						camFollow.x = dad.getMidpoint().x + 160;
+				    case 'sunkStage':
+						cpuStrums.forEach(function(spr:FlxSprite)
+				        {
+					       FlxTween.tween(spr, {x: spr.x += 350, y: spr.y}, 5, {ease: FlxEase.quartOut});
+				        });
+				
+				       playerStrums.forEach(function(spr:FlxSprite)
+				       {
+				           FlxTween.tween(spr, {x: spr.x -= 300, y: spr.y}, 5, {ease: FlxEase.quartOut});
+				       });
 				}
 
 				camFollow.y += camY;
@@ -3068,6 +3075,8 @@ Wilde\n\n';
 					FlxTween.tween(camHUD, {alpha: 1}, 10);
 			}
 		}
+		
+		
 
 		if (SONG.song.toLowerCase() == 'prey')
 		{
