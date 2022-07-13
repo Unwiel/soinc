@@ -396,7 +396,7 @@ class Character extends FlxSprite
 				var tex = Paths.getSparrowAtlas('characters/bf-sunkeh', 'shared');
 				frames = tex;
 
-				
+				trace(tex.frames.length);
 
 				animation.addByPrefix('idle', 'idle', 24, false);
 				animation.addByPrefix('singUP', 'singUP0', 24, false);
@@ -405,7 +405,7 @@ class Character extends FlxSprite
 				animation.addByPrefix('singDOWN', 'singDOWN0', 24, false);
 				animation.addByPrefix('singUPmiss', 'singUPmiss', 24, false);
 				animation.addByPrefix('singLEFTmiss', 'singLEFTmiss', 24, false);
-				animation.addByPrefix('singRIGHTmiss', 'singRIGHTmiss', 24, false);
+				animation.addByPrefix('singRIGHTmiss', 'singRIGHTmiss, 24, false);
 				animation.addByPrefix('singDOWNmiss', 'singDOWNmiss', 24, false);
 				animation.addByPrefix('hey', 'BF HEY', 24, false);
 

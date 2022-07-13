@@ -67,6 +67,7 @@ class HealthIcon extends FlxSprite
 				animation.add('bf', [0, 1], 0, false, isPlayer);
 				animation.add('bf-encore', [0, 1], 0, false, isPlayer);
 				animation.add('bf-needle', [0, 1], 0, false, isPlayer);
+				animation.add('bf-sunkeh', [0, 1], 0, false, isPlayer);
 				animation.add('Needlemouse', [0, 1], 0, false, isPlayer);
 				animation.add('sunky', [24, 25], 0, false, isPlayer);
 		

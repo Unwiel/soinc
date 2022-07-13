@@ -347,6 +347,11 @@ class PlayState extends MusicBeatState
 			case 'tailsp2':
 				defaultCamZoom = 0.8;
 				curStage = 'tailsp2';
+				
+				cpuStrums.forEach(function(spr:FlxSprite)
+				{
+					spr.alpha = 0;
+				});
 			
 			case 'needle':	
 					defaultCamZoom = 0.6;
