@@ -663,12 +663,12 @@ class PlayState extends MusicBeatState
 				healthBar.createFilledBar(0x2648FB, 0x31B0D1);	
 				cpuStrums.forEach(function(spr:FlxSprite)
 				{
-					spr.x = spr + 150;
+					FlxTween.tween(spr, {x: spr.x -= 400, y: spr.y}, 5, {ease: FlxEase.quartOut});
 				});
 				
 				playerStrums.forEach(function(spr:FlxSprite)
 				{
-					spr.x = spr - 150;
+				     FlxTween.tween(spr, {x: spr.x += 300, y: spr.y}, 5, {ease: FlxEase.quartOut});
 				});
 		}
 
