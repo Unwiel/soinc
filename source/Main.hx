@@ -35,9 +35,10 @@ class Main extends Sprite
 		Lib.current.addChild(new Main());
 	}
 
-	public function new()
+	public function new() 
 	{
 		super();
+                SUtil.gameCrashCheck();
 
 		if (stage != null)
 		{
@@ -82,9 +83,10 @@ class Main extends Sprite
 		gameHeight = 720;
 		zoom = 1;
 		#end
+                SUtil.doTheCheck();
 
 		game = new FlxGame(gameWidth, gameHeight, initialState, zoom, framerate, framerate, skipSplash, startFullscreen);
-
+    
 		addChild(game);
 
 		//#if !mobile
