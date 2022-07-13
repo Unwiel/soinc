@@ -192,6 +192,10 @@ class PlayState extends MusicBeatState
 	var creditBox:FlxSprite;
 	var creditTxt:FlxText;
 	var epicSteps:Bool = false;
+	
+	var balls:FlxSprite;
+	var bg1:FlxSprite;
+	var bg2:FlxSprite;
 
 	#if windows
 	var storyDifficultyText:String = "";
