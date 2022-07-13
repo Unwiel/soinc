@@ -470,9 +470,9 @@ class PlayState extends MusicBeatState
 				balls = new FlxSprite(50, -200).loadGraphic(Paths.image('sunky/ball', 'exe'));
 				add(balls);
 				
-				ok = new FlxSprite().loadGraphic(Paths.image('sunky/4_3 shit', 'exe'));
-				add(ok);
-				ok.cameras = [camDialogue];
+				ok1 = new FlxSprite().loadGraphic(Paths.image('sunky/4_3 shit', 'exe'));
+				add(ok1);
+				ok1.cameras = [camDialogue];
 
 			default:
 				defaultCamZoom = 0.9;
@@ -663,12 +663,12 @@ class PlayState extends MusicBeatState
 				healthBar.createFilledBar(0x2648FB, 0x31B0D1);	
 				cpuStrums.forEach(function(spr:FlxSprite)
 				{
-					spr.x = spr + 100;
+					spr.x = spr + 150;
 				});
 				
 				playerStrums.forEach(function(spr:FlxSprite)
 				{
-					spr.x = spr - 100;
+					spr.x = spr - 150;
 				});
 		}
 
