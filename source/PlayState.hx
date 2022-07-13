@@ -474,7 +474,7 @@ class PlayState extends MusicBeatState
 				bg2 = new FlxSprite(-200, -100).loadGraphic(Paths.image('sunky/stage', 'exe'));
 				add(bg2);
 				
-				balls = new FlxSprite(50, -200).loadGraphic(Paths.image('sunky/ball', 'exe'));
+				balls = new FlxSprite(50, -80).loadGraphic(Paths.image('sunky/ball', 'exe'));
 				add(balls);
 				
 				ok1 = new FlxSprite().loadGraphic(Paths.image('sunky/4_3 shit', 'exe'));
@@ -544,12 +544,12 @@ class PlayState extends MusicBeatState
 				dad.x = 200;
 			
 			case 'sunkStage':
-			    dad.x = -100;	 
-				dad.y = 500;	 
+			    dad.x = -80;	 
+				dad.y = 520;	 
 				boyfriend.y = 500;
-				boyfriend.x = 780;
-				gf.x -= 210;
-				gf.y += 20;
+				boyfriend.x = 680;
+				gf.x -= 100;
+				gf.y += 150;
 
 			case 'tailsp2':
 				camHUD.alpha = 0;	
@@ -761,7 +761,7 @@ class PlayState extends MusicBeatState
 		{
 		    if (curSong.toLowerCase() == 'milk')
 			{
-			    startCountdown();
+			    startSong();
 				add(blackFuck);
 				startCircle.loadGraphic(Paths.image('StartScreens/Sunky', 'exe'));
 				startCircle.scale.x = 0;
@@ -779,6 +779,16 @@ class PlayState extends MusicBeatState
 					FlxTween.tween(startCircle, {alpha: 0}, 1);
 					
 				});
+				
+				        cpuStrums.forEach(function(spr:FlxSprite)
+				        {
+					       FlxTween.tween(spr, {x: spr.x += 300, y: spr.y}, 0.1, {ease: FlxEase.quartOut});
+				        });
+				
+				       playerStrums.forEach(function(spr:FlxSprite)
+				       {
+				           FlxTween.tween(spr, {x: spr.x -= 200, y: spr.y}, 0.1, {ease: FlxEase.quartOut});
+				       });
 				
 				
 			}
@@ -1817,15 +1827,7 @@ Wilde\n\n';
 						camFollow.y = dad.getMidpoint().y;
 						camFollow.x = dad.getMidpoint().x + 160;
 				    case 'sunkStage':
-						cpuStrums.forEach(function(spr:FlxSprite)
-				        {
-					       FlxTween.tween(spr, {x: spr.x += 350, y: spr.y}, 5, {ease: FlxEase.quartOut});
-				        });
-				
-				       playerStrums.forEach(function(spr:FlxSprite)
-				       {
-				           FlxTween.tween(spr, {x: spr.x -= 300, y: spr.y}, 5, {ease: FlxEase.quartOut});
-				       });
+						camFollow.x = dad.getMidpoint().x + 100;
 				}
 
 				camFollow.y += camY;
@@ -1857,6 +1859,9 @@ Wilde\n\n';
 
 					case 'too-slow':
 						camFollow.x = boyfriend.getMidpoint().x - 270;
+						
+					case 'sunkStage':
+						camFollow.x = boyfriend.getMidpoint().x - 50;
 				}
 
 				camFollow.x += bfcamX;
