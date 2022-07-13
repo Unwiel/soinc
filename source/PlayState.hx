@@ -192,9 +192,10 @@ class PlayState extends MusicBeatState
 	var creditBox:FlxSprite;
 	var creditTxt:FlxText;
 	var epicSteps:Bool = false;
-	
+	//sans:eee eee -ERICK 
 	var balls:FlxSprite;
 	var bg1:FlxSprite;
+    var ok1:FlxSprite; 
 	
 
 	#if windows
@@ -348,11 +349,7 @@ class PlayState extends MusicBeatState
 				defaultCamZoom = 0.8;
 				curStage = 'tailsp2';
 				
-				cpuStrums.forEach(function(spr:FlxSprite)
-				{
-					spr.alpha = 0;
-				});
-			
+				
 			case 'needle':	
 					defaultCamZoom = 0.6;
 					curStage = 'needle';
@@ -470,8 +467,12 @@ class PlayState extends MusicBeatState
 				bg2 = new FlxSprite(-200, -100).loadGraphic(Paths.image('sunky/stage', 'exe'));
 				add(bg2);
 				
-				balls = new FlxSprite(50, -500).loadGraphic(Paths.image('sunky/ball', 'exe'));
+				balls = new FlxSprite(50, -200).loadGraphic(Paths.image('sunky/ball', 'exe'));
 				add(balls);
+				
+				ok = new FlxSprite().loadGraphic(Paths.image('sunky/4_3 shit', 'exe'));
+				add(ok);
+				ok.cameras = [camDialogue];
 
 			default:
 				defaultCamZoom = 0.9;
@@ -533,7 +534,15 @@ class PlayState extends MusicBeatState
 				camHUD.alpha = 0;
 
 			case 'needle':
-				dad.x = 200;	
+				dad.x = 200;
+			
+			case 'sunkStage':
+			    dad.x = 50;	 
+				dad.y = 300;	 
+				boyfriend.y = 550;
+				boyfriend.x = 820;
+				gf.x += 210;
+				gf.y -= 20;
 
 			case 'tailsp2':
 				camHUD.alpha = 0;	
@@ -652,6 +661,15 @@ class PlayState extends MusicBeatState
 				
 			case 'milk':
 				healthBar.createFilledBar(0x2648FB, 0x31B0D1);	
+				cpuStrums.forEach(function(spr:FlxSprite)
+				{
+					spr.x = spr + 100;
+				});
+				
+				playerStrums.forEach(function(spr:FlxSprite)
+				{
+					spr.x = spr - 100;
+				});
 		}
 
 		scoreTxt = new FlxText(FlxG.width / 2 - 235, healthBarBG.y + 50, 0, "", 20);
@@ -792,7 +810,7 @@ class PlayState extends MusicBeatState
 		scorePixel.antialiasing = false;
 		scorePixel.cameras = [camHUD];
 		scorePixel.scale.set(3.5,3.5);
-		add(scorePixel);
+		//add(scorePixel);
 
 		creditBox = new FlxSprite(430, -1000);
 		creditBox.loadGraphic(Paths.image('box'));
@@ -3011,6 +3029,11 @@ Wilde\n\n';
 			{
 				case 20:
 					FlxTween.tween(dad, {alpha: 1}, 3);
+				cpuStrums.forEach(function(spr:FlxSprite)
+				{
+					spr.alpha = 0;
+				});
+			
 
 				case 60:
 					FlxTween.tween(camHUD, {alpha: 1}, 10);
