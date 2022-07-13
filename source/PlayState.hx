@@ -777,7 +777,7 @@ class PlayState extends MusicBeatState
 				{
 					FlxTween.tween(blackFuck, {alpha: 0}, 1);
 					FlxTween.tween(startCircle, {alpha: 0}, 1);
-					
+					startSong();
 				});
 				
 				        cpuStrums.forEach(function(spr:FlxSprite)
@@ -794,6 +794,7 @@ class PlayState extends MusicBeatState
 			}
 			switch (curSong.toLowerCase())
 			{
+			    case 'milk':
 			    
 				default:
 					startCountdown();
@@ -1374,6 +1375,16 @@ Wilde\n\n';
 			{					
 				spr.centerOffsets(); //CPU arrows start out slightly off-center
 			});
+			
+			if (SONG.song.toLowerCase() == 'milk')
+		    {
+                 if (player == 0)
+                     babyArrow.x += 150;
+               
+                 if (player == 1)
+                    babyArrow.x -= 50;
+            } 
+
 
 			strumLineNotes.add(babyArrow);
 		}
@@ -3078,6 +3089,41 @@ Wilde\n\n';
 
 				case 60:
 					FlxTween.tween(camHUD, {alpha: 1}, 10);
+			}
+		}
+		
+		if (SONG.song.toLowerCase() == 'milk')
+		{
+			switch(curStep)
+			{
+				case 64:
+				   FlxG.camera.zoom += 0.02;
+				   camHUD.zoom += 0.055;
+				
+				case 88:
+				   FlxG.camera.zoom += 0.02;
+				   camHUD.zoom += 0.055;
+				case 96:
+				   FlxG.camera.zoom += 0.02;
+				   camHUD.zoom += 0.055;
+				   epicSteps = true;
+				
+				case 121:
+				   FlxG.camera.zoom += 0.02;
+				   camHUD.zoom += 0.055;
+				   epicSteps = false;
+			   case 133:
+				   camHUD.shake(2, 19);
+				   camGame.shake(2, 10);
+				
+				case 144:
+				   camHUD.shake(0, 19);
+				   camGame.shake(0, 10);
+				    FlxG.camera.zoom += 0.02;
+				   camHUD.zoom += 0.055;
+				   epicSteps = true; 
+				
+					
 			}
 		}
 		
