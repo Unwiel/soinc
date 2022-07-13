@@ -755,14 +755,9 @@ class PlayState extends MusicBeatState
 		}
 		else
 		{
-			switch (curSong.toLowerCase())
+		    if (curSong.toLowerCase() == 'milk')
 			{
-			    
-				default:
-					startCountdown();
-			}
-			else if (curSong.toLowerCase() == 'milk')
-			{
+			
 			    cpuStrums.forEach(function(spr:FlxSprite)
 				{
 					FlxTween.tween(spr, {x: spr.x += 350, y: spr.y}, 5, {ease: FlxEase.quartOut});
@@ -790,6 +785,13 @@ class PlayState extends MusicBeatState
 					startSong();
 				});
 			}
+			switch (curSong)
+			{
+			    
+				default:
+					startCountdown();
+			}
+			
 		}
 
 		if (!loadRep)
