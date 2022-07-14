@@ -501,7 +501,7 @@ class PlayState extends MusicBeatState
 			
 			     ohno = new FlxSprite().loadGraphic(Paths.image('sunky/sunkage', 'exe'));
 				add(ohno);
-				ohn.cameras = [camDialogue];
+				ohno.cameras = [camDialogue];
 				ohno.alpha = 0;
 				
 				ok1 = new FlxSprite().loadGraphic(Paths.image('sunky/4_3 shit', 'exe'));
@@ -1392,7 +1392,7 @@ Wilde\n\n';
 			if (SONG.song.toLowerCase() == 'milk')
 		    {
                  if (player == 0)
-                     babyArrow.x += 140;
+                     babyArrow.x += 145;
                
                  if (player == 1)
                     babyArrow.x -= 45;
@@ -3190,7 +3190,7 @@ Wilde\n\n';
 						 {
 							FlxTween.tween(FlxG.camera, {zoom: 0.77}, 1,  {
 						       ease: FlxEase.quadInOut,
-						       onComplete: function(twn:FlxTween23)
+						       onComplete: function(twn:FlxTween)
 						       {
 							        FlxG.camera.zoom = 0.77; 
 							        defaultCamZoom = 0.77; 
