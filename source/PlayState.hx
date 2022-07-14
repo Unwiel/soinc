@@ -2085,7 +2085,7 @@ Wilde\n\n';
 								dad.playAnim('singLEFT' + altAnim, true);
 						}
 						
-						if (FlxG.save.data.cpuStrums)
+						if (!FlxG.save.data.cpuStrums)
 						{
 							cpuStrums.forEach(function(spr:FlxSprite)
 							{
@@ -3144,13 +3144,14 @@ Wilde\n\n';
 			   case 133:
 				   camHUD.shake(1, 19);
 				   camGame.shake(1, 10);
-				   FlxTween.tween(sunkybailando, {alpha: 1}, 1);
+				   FlxTween.tween(sunkybailando, {alpha: 0.5}, 0.5);
 				
 				case 144:
+				   FlxTween.tween(sunkybailando, {alpha: 0}, 0.1);
 				   camHUD.shake(0, 19);
 				   camGame.shake(0, 10);
 				   epicSteps2 = true; 
-				   FlxTween.tween(sunkybailando, {alpha: 0}, 0.0001);
+				   
 				
 				case 352:
 				   FlxTween.tween(FlxG.camera, {zoom: 0.9}, 1,  {
@@ -3173,7 +3174,7 @@ Wilde\n\n';
 					});
 					
 				case 560:
-				   FlxTween.tween(sunkypose, {x: 2000}, 10, { ease: FlxEase.linear});
+				   FlxTween.tween(sunkypose, {x: 2000}, 20, { ease: FlxEase.linear});
 				
 				case 638:
 				   FlxTween.tween(FlxG.camera, {zoom: 0.9}, 1,  {
