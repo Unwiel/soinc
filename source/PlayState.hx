@@ -500,7 +500,7 @@ class PlayState extends MusicBeatState
                 sunkypose.cameras = [camDialogue]; 
                 sunkypose.screenCenter(X);
                 sunkypose.screenCenter(Y);
-                sunkypose.x = -3500;
+                sunkypose.x = -2000;
 			
 			     ohno = new FlxSprite().loadGraphic(Paths.image('sunky/sunkage', 'exe'));
 				add(ohno);
@@ -3150,7 +3150,7 @@ Wilde\n\n';
 				   camHUD.shake(0, 19);
 				   camGame.shake(0, 10);
 				   epicSteps2 = true; 
-				   FlxTween.tween(sunkybailando, {alpha: 0}, 1);
+				   FlxTween.tween(sunkybailando, {alpha: 0}, 0.0001);
 				
 				case 352:
 				   FlxTween.tween(FlxG.camera, {zoom: 0.9}, 1,  {
@@ -3173,15 +3173,15 @@ Wilde\n\n';
 					});
 					
 				case 560:
-				   FlxTween.tween(sunkypose, {x: 3500}, 5, { ease: FlxEase.linear});
+				   FlxTween.tween(sunkypose, {x: 2000}, 10, { ease: FlxEase.linear});
 				
 				case 638:
 				   FlxTween.tween(FlxG.camera, {zoom: 0.9}, 1,  {
 						ease: FlxEase.quadInOut,
 						onComplete: function(twn:FlxTween)
 						 {
-							FlxG.camera.zoom = 0.77; 
-							defaultCamZoom = 0.77; 
+							FlxG.camera.zoom = 0.9; 
+							defaultCamZoom = 0.9; 
 						} 
 					});
 					
@@ -3196,8 +3196,8 @@ Wilde\n\n';
 						       ease: FlxEase.quadInOut,
 						       onComplete: function(twn:FlxTween)
 						       {
-							        FlxG.camera.zoom = 0.95; 
-							        defaultCamZoom = 0.95; 
+							        FlxG.camera.zoom = 0.77; 
+							        defaultCamZoom = 0.77; 
 						       } 
 					         });
 			
