@@ -504,7 +504,7 @@ class PlayState extends MusicBeatState
 			
 			     ohno = new FlxSprite().loadGraphic(Paths.image('sunky/sunkage', 'exe'));
 				add(ohno);
-				ohno.cameras = [camDialogue];
+				ohno.cameras = [camHUD];
 				ohno.alpha = 0;
 				
 				ok1 = new FlxSprite().loadGraphic(Paths.image('sunky/4_3 shit', 'exe'));
@@ -3213,6 +3213,7 @@ Wilde\n\n';
 				case 1460:
 				    camGame.alpha = 1;
 				    ohno.alpha = 0;
+				FlxTween.tween(ohno, {alpha: 0}, 0.000001);
 			}
 		}
 		
