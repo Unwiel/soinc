@@ -500,7 +500,7 @@ class PlayState extends MusicBeatState
                 sunkypose.cameras = [camDialogue]; 
                 sunkypose.screenCenter(X);
                 sunkypose.screenCenter(Y);
-                sunkypose.x = -2000
+                sunkypose.x = -3500;
 			
 			     ohno = new FlxSprite().loadGraphic(Paths.image('sunky/sunkage', 'exe'));
 				add(ohno);
@@ -1889,7 +1889,7 @@ Wilde\n\n';
 						camFollow.x = boyfriend.getMidpoint().x - 270;
 						
 					case 'sunkStage':
-						camFollow.x = boyfriend.getMidpoint().x - 60;
+						camFollow.x = boyfriend.getMidpoint().x - 170;
 				}
 
 				camFollow.x += bfcamX;
@@ -3173,7 +3173,7 @@ Wilde\n\n';
 					});
 					
 				case 560:
-				   FlxTween.tween(sunkypose, {x: 2500}, 10, { ease: FlxEase.linear});
+				   FlxTween.tween(sunkypose, {x: 3500}, 5 { ease: FlxEase.linear});
 				
 				case 638:
 				   FlxTween.tween(FlxG.camera, {zoom: 0.9}, 1,  {
