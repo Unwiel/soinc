@@ -761,7 +761,7 @@ class PlayState extends MusicBeatState
 		{
 		    if (curSong.toLowerCase() == 'milk')
 			{
-			    startSong();
+			    startCountdown();
 				add(blackFuck);
 				startCircle.loadGraphic(Paths.image('StartScreens/Sunky', 'exe'));
 				startCircle.scale.x = 0;
@@ -777,25 +777,15 @@ class PlayState extends MusicBeatState
 				{
 					FlxTween.tween(blackFuck, {alpha: 0}, 1);
 					FlxTween.tween(startCircle, {alpha: 0}, 1);
-					startCountdown();
+					
 				});
 				
-				        cpuStrums.forEach(function(spr:FlxSprite)
-				        {
-					       FlxTween.tween(spr, {x: spr.x += 500, y: spr.y}, 0.1, {ease: FlxEase.quartOut});
-				        });
-				
-				       playerStrums.forEach(function(spr:FlxSprite)
-				       {
-				           FlxTween.tween(spr, {x: spr.x -= 400, y: spr.y}, 0.1, {ease: FlxEase.quartOut});
-				       });
-				
+				        
 				
 			}
 			switch (curSong.toLowerCase())
 			{
-			    case 'milk':
-			     //nada bobo
+			   
 				default:
 					startCountdown();
 			}
