@@ -192,10 +192,15 @@ class PlayState extends MusicBeatState
 	var creditBox:FlxSprite;
 	var creditTxt:FlxText;
 	var epicSteps:Bool = false;
+	//weasdelzoom
+	var epicSteps2:Bool = false;
 	//sans:eee eee -ERICK 
 	var balls:FlxSprite;
 	var bg1:FlxSprite;
     var ok1:FlxSprite; 
+    var sunkybailando:FlxSprite; 
+    var sunkypose:FlxSprite; 
+    var ohno:FlxSprite; 
     var startCircle:FlxSprite;
     var blackFuck:FlxSprite; 
 	
@@ -477,6 +482,28 @@ class PlayState extends MusicBeatState
 				balls = new FlxSprite(50, -80).loadGraphic(Paths.image('sunky/ball', 'exe'));
 				add(balls);
 				
+				sunkybailando = new FlxSprite();
+				sunkybailando.frames = Paths.getSparrowAtlas('sunky/sunker', 'exe');
+				sunkybailando.animation.addByPrefix('jump', 'sunker0', 24, true);
+				add(sunkybailando);
+				sunkybailando.animation.play('jump');
+				sunkybailando.cameras = [camDialogue];
+				sunkybailando.alpha = 0;
+				sunkybailando.scale.x = 2;
+			    sunkybailando.scale.y = 2
+			    
+			     
+			    sunkypose = new FlxSprite(-800, -200).loadGraphic(Paths.image('sunky/sunkyPose', 'exe'));
+				add(sunkypose); 
+                sunkypose.cameras = [camDialogue]; 
+                sunkypose.scale.x = 4;
+			    sunkypose.scale.y = 4;
+			
+			     ohno = new FlxSprite().loadGraphic(Paths.image('sunky/sunkage', 'exe'));
+				add(ohno);
+				ohn.cameras = [camDialogue];
+				ohno.alpha = 0;
+				
 				ok1 = new FlxSprite().loadGraphic(Paths.image('sunky/4_3 shit', 'exe'));
 				add(ok1);
 				ok1.cameras = [camDialogue];
@@ -671,14 +698,10 @@ class PlayState extends MusicBeatState
 				
 		}
 
-		scoreTxt = new FlxText(FlxG.width / 2 - 235, healthBarBG.y + 50, 0, "", 20);
-		if (!FlxG.save.data.accuracyDisplay)
-			scoreTxt.x = healthBarBG.x + healthBarBG.width / 2;
-		scoreTxt.setFormat(Paths.font("vcr.ttf"), 16, FlxColor.WHITE, CENTER, FlxTextBorderStyle.OUTLINE,FlxColor.BLACK);
+		scoreTxt = new FlxText(0, healthBarBG.y + 36, FlxG.width, "", 20);
+		scoreTxt.setFormat(Paths.font("vcr.ttf"), 20, FlxColor.WHITE, CENTER, FlxTextBorderStyle.OUTLINE, FlxColor.BLACK);
 		scoreTxt.scrollFactor.set();
-		if (offsetTesting)
-			scoreTxt.x += 300;
-		if(FlxG.save.data.botplay) scoreTxt.x = FlxG.width / 2 - 20;													  
+		scoreTxt.borderSize = 1.25;
 		add(scoreTxt);
 
 		replayTxt = new FlxText(healthBarBG.x + healthBarBG.width / 2 - 75, healthBarBG.y + (FlxG.save.data.downscroll ? 100 : -100), 0, "REPLAY", 20);
@@ -1369,10 +1392,10 @@ Wilde\n\n';
 			if (SONG.song.toLowerCase() == 'milk')
 		    {
                  if (player == 0)
-                     babyArrow.x += 150;
+                     babyArrow.x += 140;
                
                  if (player == 1)
-                    babyArrow.x -= 50;
+                    babyArrow.x -= 45;
             } 
 
 
@@ -1829,6 +1852,7 @@ Wilde\n\n';
 						camFollow.x = dad.getMidpoint().x + 160;
 				    case 'sunkStage':
 						camFollow.x = dad.getMidpoint().x + 280;
+						camFollow.y = dad.getMidpoint().y - 20;
 				}
 
 				camFollow.y += camY;
@@ -1862,7 +1886,7 @@ Wilde\n\n';
 						camFollow.x = boyfriend.getMidpoint().x - 270;
 						
 					case 'sunkStage':
-						camFollow.x = boyfriend.getMidpoint().x + 50;
+						camFollow.x = boyfriend.getMidpoint().x - 60;
 				}
 
 				camFollow.x += bfcamX;
@@ -3090,30 +3114,101 @@ Wilde\n\n';
 				   FlxG.camera.zoom += 0.02;
 				   camHUD.zoom += 0.055;
 				
-				case 88:
+				case 80:
 				   FlxG.camera.zoom += 0.02;
 				   camHUD.zoom += 0.055;
 				case 96:
-				   FlxG.camera.zoom += 0.02;
-				   camHUD.zoom += 0.055;
-				   epicSteps = true;
+				   epicSteps2 = true;
+				   FlxTween.tween(FlxG.camera, {zoom: 0.9}, 3.5,  {
+						ease: FlxEase.quadInOut,
+						onComplete: function(twn:FlxTween)
+						 {
+							FlxG.camera.zoom = 0.9; 
+							defaultCamZoom = 0.9; 
+						} 
+					});
 				
-				case 121:
-				   FlxG.camera.zoom += 0.02;
-				   camHUD.zoom += 0.055;
-				   epicSteps = false;
+				case 120:
+				   epicSteps2 = false;
+				   FlxTween.tween(FlxG.camera, {zoom: 0.77}, 1,  {
+						ease: FlxEase.quadInOut,
+						onComplete: function(twn:FlxTween)
+						 {
+							FlxG.camera.zoom = 0.77; 
+							defaultCamZoom = 0.77; 
+						} 
+					});
 			   case 133:
-				   camHUD.shake(2, 19);
-				   camGame.shake(2, 10);
+				   camHUD.shake(1, 19);
+				   camGame.shake(1, 10);
+				   FlxTween.tween(sunkybailando, {alpha: 1}, 2);
 				
 				case 144:
 				   camHUD.shake(0, 19);
 				   camGame.shake(0, 10);
-				    FlxG.camera.zoom += 0.02;
-				   camHUD.zoom += 0.055;
-				   epicSteps = true; 
+				   epicSteps2 = true; 
+				   sunkybailando.alpha = 0;
 				
+				case 352:
+				   FlxTween.tween(FlxG.camera, {zoom: 0.9}, 1,  {
+						ease: FlxEase.quadInOut,
+						onComplete: function(twn:FlxTween)
+						 {
+							FlxG.camera.zoom = 0.77; 
+							defaultCamZoom = 0.77; 
+						} 
+					});
+				
+				case 367:
+				   epicSteps2 = false;
+				   FlxTween.tween(FlxG.camera, {zoom: 0.77}, 1,  {
+						ease: FlxEase.quadInOut,
+						onComplete: function(twn:FlxTween)
+						 {
+							FlxG.camera.zoom = 0.77; 
+							defaultCamZoom = 0.77; 
+						} 
+					});
 					
+				case 560:
+				   FlxTween.tween(sunkypose, {x: 1000}, 10, { ease: FlxEase.linear});
+				
+				case 638:
+				   FlxTween.tween(FlxG.camera, {zoom: 0.9}, 1,  {
+						ease: FlxEase.quadInOut,
+						onComplete: function(twn:FlxTween)
+						 {
+							FlxG.camera.zoom = 0.77; 
+							defaultCamZoom = 0.77; 
+						} 
+					});
+					
+				case 652:
+				   FlxTween.tween(FlxG.camera, {zoom: 0.95}, 1,  {
+						ease: FlxEase.quadInOut,
+						onComplete: function(twn:FlxTween)
+						 {
+							FlxTween.tween(FlxG.camera, {zoom: 0.77}, 1,  {
+						       ease: FlxEase.quadInOut,
+						       onComplete: function(twn:FlxTween23)
+						       {
+							        FlxG.camera.zoom = 0.77; 
+							        defaultCamZoom = 0.77; 
+						       } 
+					         });
+			
+						} 
+					});
+					
+				case 1424:
+				   camGame.alpha = 0;
+				
+				case 1440:
+				   FlxTween.tween(ohno, {alpha: 1}, 5);
+				
+				case 1460:
+				    camGame.alpha = 1;
+				    ohno.alpha = 0;
 			}
 		}
 		
@@ -3330,6 +3425,16 @@ Wilde\n\n';
 		}
 
 		if (epicSteps && FlxG.camera.zoom < 1.35 && curStep % 5 == 0)
+		{
+			FlxG.camera.zoom += 0.04;
+		}
+		
+		if (epicSteps2 && FlxG.camera.zoom < 1.35 && curStep % 7 == 0)
+		{
+			camHUD.zoom += 0.052;
+		}
+
+		if (epicSteps2 && FlxG.camera.zoom < 1.35 && curStep % 8 == 0)
 		{
 			FlxG.camera.zoom += 0.04;
 		}
