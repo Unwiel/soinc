@@ -777,7 +777,7 @@ class PlayState extends MusicBeatState
 				{
 					FlxTween.tween(blackFuck, {alpha: 0}, 1);
 					FlxTween.tween(startCircle, {alpha: 0}, 1);
-					startSong();
+					startCountdown();
 				});
 				
 				        cpuStrums.forEach(function(spr:FlxSprite)
@@ -795,7 +795,7 @@ class PlayState extends MusicBeatState
 			switch (curSong.toLowerCase())
 			{
 			    case 'milk':
-			    
+			     //nada bobo
 				default:
 					startCountdown();
 			}
@@ -966,7 +966,7 @@ Wilde\n\n';
 
 			{
 				case 0:
-					FlxG.sound.play(Paths.sound('intro3' + altSuffix), 0.6);
+					//FlxG.sound.play(Paths.sound('intro3' + altSuffix), 0.6);
 				case 1:
 					var ready:FlxSprite = new FlxSprite().loadGraphic(Paths.image(introAlts[0]));
 					ready.scrollFactor.set();
@@ -984,7 +984,7 @@ Wilde\n\n';
 							ready.destroy();
 						}
 					});
-					FlxG.sound.play(Paths.sound('intro2' + altSuffix), 0.6);
+					//FlxG.sound.play(Paths.sound('intro2' + altSuffix), 0.6);
 				case 2:
 					var set:FlxSprite = new FlxSprite().loadGraphic(Paths.image(introAlts[1]));
 					set.scrollFactor.set();
@@ -1001,7 +1001,7 @@ Wilde\n\n';
 							set.destroy();
 						}
 					});
-					FlxG.sound.play(Paths.sound('intro1' + altSuffix), 0.6);
+					//FlxG.sound.play(Paths.sound('intro1' + altSuffix), 0.6);
 				case 3:
 					var go:FlxSprite = new FlxSprite().loadGraphic(Paths.image(introAlts[2]));
 					go.scrollFactor.set();
@@ -1020,7 +1020,7 @@ Wilde\n\n';
 							go.destroy();
 						}
 					});
-					FlxG.sound.play(Paths.sound('introGo' + altSuffix), 0.6);
+					//FlxG.sound.play(Paths.sound('introGo' + altSuffix), 0.6);
 				case 4:
 			}
 
@@ -1838,7 +1838,7 @@ Wilde\n\n';
 						camFollow.y = dad.getMidpoint().y;
 						camFollow.x = dad.getMidpoint().x + 160;
 				    case 'sunkStage':
-						camFollow.x = dad.getMidpoint().x + 300;
+						camFollow.x = dad.getMidpoint().x + 280;
 				}
 
 				camFollow.y += camY;
@@ -1872,7 +1872,7 @@ Wilde\n\n';
 						camFollow.x = boyfriend.getMidpoint().x - 270;
 						
 					case 'sunkStage':
-						camFollow.x = boyfriend.getMidpoint().x - 50;
+						camFollow.x = boyfriend.getMidpoint().x + 50;
 				}
 
 				camFollow.x += bfcamX;
