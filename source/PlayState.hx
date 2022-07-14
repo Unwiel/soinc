@@ -3243,14 +3243,14 @@ Wilde\n\n';
                         
 				        sunkypose.loadGraphic(Paths.image('sunky/sunkyPose', 'exe'));
 				        
-				        FlxTween.tween(sunkypose, {y: 5000}, 20, { ease: FlxEase.linear});
+				        FlxTween.tween(sunkypose, {y: 5000}, 30, { ease: FlxEase.linear});
 				     case 2:
 				        
 				        sunkypose.x = 600;
                         sunkypose.y = -2000;
 				        sunkypose.loadGraphic(Paths.image('sunky/cereal', 'exe'));
 				        
-				        FlxTween.tween(sunkypose, {y: 6000}, 20, { ease: FlxEase.linear});
+				        FlxTween.tween(sunkypose, {y: 6000}, 30, { ease: FlxEase.linear});
 				     case 3:
 				        
 				        sunkypose.x = 600;
@@ -3258,7 +3258,7 @@ Wilde\n\n';
 				        sunkypose.loadGraphic(Paths.image('sunky/sunkyMunch', 'exe'));
 				        
 				        sunkypose.y = -2000;
-				        FlxTween.tween(sunkypose, {y: 6000}, 20, { ease: FlxEase.linear});
+				        FlxTween.tween(sunkypose, {y: 6000}, 30, { ease: FlxEase.linear});
 				   } 
 				
 				case 902:
@@ -3271,24 +3271,22 @@ Wilde\n\n';
                         
 				        sunkypose.loadGraphic(Paths.image('sunky/sunkyPose', 'exe'));
 				        
-				        FlxTween.tween(sunkypose, {y: 6000}, 20, { ease: FlxEase.linear});
-				        FlxTween.tween(sunkypose, {x: 6000}, 20, { ease: FlxEase.linear});
+				        FlxTween.tween(sunkypose, {x: 6000, y: 6000}, 30, { ease: FlxEase.linear});
+				       
 				     case 2:
 				        
 				        sunkypose.x = 2000;
                         sunkypose.y = -2000;
 				        sunkypose.loadGraphic(Paths.image('sunky/cereal', 'exe'));
 				        
-				        FlxTween.tween(sunkypose, {y: 6000}, 20, { ease: FlxEase.linear});
-				        FlxTween.tween(sunkypose, {x: 6000}, 20, { ease: FlxEase.linear});
+				        FlxTween.tween(sunkypose, {x: 6000, y: 6000}, 30, { ease: FlxEase.linear});
 				     case 3:
 				        
 				        sunkypose.x = 2000;
                         sunkypose.y = -2000;
 				        sunkypose.loadGraphic(Paths.image('sunky/sunkyMunch', 'exe'));
 				       
-				        FlxTween.tween(sunkypose, {y: 6000}, 20, { ease: FlxEase.linear}); 
-				        FlxTween.tween(sunkypose, {x: 6000}, 20, { ease: FlxEase.linear});
+				        FlxTween.tween(sunkypose, {x: 6000, y: 6000}, 30, { ease: FlxEase.linear});
 				   } 
 					
 				case 1424:
