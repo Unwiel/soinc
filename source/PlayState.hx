@@ -3173,7 +3173,7 @@ Wilde\n\n';
 					});
 					
 				case 560:
-				   FlxTween.tween(sunkypose, {x: 3500}, 5 { ease: FlxEase.linear});
+				   FlxTween.tween(sunkypose, {x: 3500}, 5, { ease: FlxEase.linear});
 				
 				case 638:
 				   FlxTween.tween(FlxG.camera, {zoom: 0.9}, 1,  {
