@@ -142,6 +142,7 @@ class PlayState extends MusicBeatState
 	//prey
 	var scrollBG:FlxBackdrop;
 	var floor:FlxBackdrop;
+	var sunky:FlxCamera;
 	var camDialogue:FlxCamera;
 	var blackUp:FlxSprite;
 	var blackDown:FlxSprite;
@@ -279,11 +280,14 @@ class PlayState extends MusicBeatState
 
 		camGame = new FlxCamera();
 		camHUD = new FlxCamera();
+		sunky = new FlxCamera();
 		camDialogue = new FlxCamera();
 		camHUD.bgColor.alpha = 0;
+		sunky.bgColor.alpha = 0;
         camDialogue.bgColor.alpha = 0;
 		FlxG.cameras.reset(camGame);
 		FlxG.cameras.add(camHUD);
+		FlxG.cameras.add(sunky);
 		FlxG.cameras.add(camDialogue);
 		FlxCamera.defaultCameras = [camGame];
 
@@ -489,22 +493,19 @@ class PlayState extends MusicBeatState
 				sunkybailando.animation.play('jump');
 				sunkybailando.cameras = [camDialogue];
 				sunkybailando.alpha = 0;
-				sunkybailando.scale.x = 2;
-			    sunkybailando.scale.y = 2;
+				sunkybailando.scale.x = 4;
+			    sunkybailando.scale.y = 4;
 			    sunkybailando.screenCenter(X);
                 sunkybailando.screenCenter(Y);
 			
 			     
-			    sunkypose = new FlxSprite().loadGraphic(Paths.image('sunky/sunkyPose', 'exe'));
-				add(sunkypose); 
-                sunkypose.cameras = [camDialogue]; 
-                sunkypose.screenCenter(X);
-                sunkypose.screenCenter(Y);
-                sunkypose.x = -2000;
+			    sunkypose = new FlxSprite();
+				
+                
 			
 			     ohno = new FlxSprite().loadGraphic(Paths.image('sunky/sunkage', 'exe'));
 				add(ohno);
-				ohno.cameras = [camHUD];
+				ohno.cameras = [camDialogue];
 				ohno.alpha = 0;
 				
 				ok1 = new FlxSprite().loadGraphic(Paths.image('sunky/4_3 shit', 'exe'));
@@ -738,6 +739,7 @@ class PlayState extends MusicBeatState
 		iconP2.cameras = [camHUD];
 		scoreTxt.cameras = [camHUD];
 		doof.cameras = [camHUD];
+		sunkypose.cameras = [sunky]; 
 		startCircle.cameras = [camDialogue];
 		blackFuck.cameras = [camDialogue]; 
 		if (FlxG.save.data.songPosition)
@@ -2172,7 +2174,7 @@ Wilde\n\n';
 				});
 			}
 
-		if (FlxG.save.data.cpuStrums)
+		if (!FlxG.save.data.cpuStrums)
 		{
 			cpuStrums.forEach(function(spr:FlxSprite)
 			{
@@ -3174,8 +3176,33 @@ Wilde\n\n';
 					});
 					
 				case 560:
-				   FlxTween.tween(sunkypose, {x: 2000}, 20, { ease: FlxEase.linear});
-				
+				   switch (FlxG.random.int(1, 3))
+                   {
+                     case 1:
+                        sunkypose.x = -2000;
+                        
+                        
+                        sunkypose.loadGraphic(Paths.image('sunky/sunkyPose', 'exe'));
+                        add(sunkypose); 
+				        
+				        FlxTween.tween(sunkypose, {x: 2000}, 20, { ease: FlxEase.linear});
+				     case 2:
+				        sunkypose.x = -2000;
+                        
+                        
+                        sunkypose.loadGraphic(Paths.image('sunky/cereal', 'exe'));
+                        add(sunkypose); 
+				        
+				        FlxTween.tween(sunkypose, {x: 2000}, 20, { ease: FlxEase.linear});
+				     case 3:
+				        sunkypose.x = -2000;
+                        
+                        
+                        sunkypose.loadGraphic(Paths.image('sunky/sunkyMunch', 'exe'));
+                        add(sunkypose); 
+				        
+				        FlxTween.tween(sunkypose, {x: 2000}, 20, { ease: FlxEase.linear});
+				   } 
 				case 638:
 				   FlxTween.tween(FlxG.camera, {zoom: 0.9}, 1,  {
 						ease: FlxEase.quadInOut,
@@ -3204,6 +3231,63 @@ Wilde\n\n';
 			
 						} 
 					});
+					
+					
+				case 804:
+				   switch (FlxG.random.int(1, 3))
+                   {
+                     case 1:
+                         remove(sunkypose); 
+                        sunkypose.x = 700;
+                        sunkypose.y = -2000;
+                        
+				        sunkypose.loadGraphic(Paths.image('sunky/sunkyPose', 'exe'));
+				        add(sunkypose); 
+				        FlxTween.tween(sunkypose, {y: 2000}, 20, { ease: FlxEase.linear});
+				     case 2:
+				        remove(sunkypose); 
+				        sunkypose.x = 700;
+                        sunkypose.y = -2000;
+				        sunkypose.loadGraphic(Paths.image('sunky/cereal', 'exe'));
+				        add(sunkypose); 
+				        FlxTween.tween(sunkypose, {y: 2000}, 20, { ease: FlxEase.linear});
+				     case 3:
+				        remove(sunkypose); 
+				        sunkypose.x = 700;
+                        sunkypose.y = -2000;
+				        sunkypose.loadGraphic(Paths.image('sunky/sunkyMunch', 'exe'));
+				        add(sunkypose); 
+				        FlxTween.tween(sunkypose, {y: 2000}, 20, { ease: FlxEase.linear});
+				   } 
+				
+				case 902:
+				   switch (FlxG.random.int(1, 3))
+                   {
+                     case 1:
+                         remove(sunkypose); 
+                        sunkypose.x = 2000;
+                        sunkypose.y = -2000;
+                        
+				        sunkypose.loadGraphic(Paths.image('sunky/sunkyPose', 'exe'));
+				        add(sunkypose); 
+				        FlxTween.tween(sunkypose, {y: 2000}, 20, { ease: FlxEase.linear});
+				        FlxTween.tween(sunkypose, {x: 2000}, 20, { ease: FlxEase.linear});
+				     case 2:
+				        remove(sunkypose); 
+				        sunkypose.x = 2000;
+                        sunkypose.y = -2000;
+				        sunkypose.loadGraphic(Paths.image('sunky/cereal', 'exe'));
+				        add(sunkypose); 
+				        FlxTween.tween(sunkypose, {y: 2000}, 20, { ease: FlxEase.linear});
+				        FlxTween.tween(sunkypose, {x: 2000}, 20, { ease: FlxEase.linear});
+				     case 3:
+				        remove(sunkypose); 
+				        sunkypose.x = 2000;
+                        sunkypose.y = -2000;
+				        sunkypose.loadGraphic(Paths.image('sunky/sunkyMunch', 'exe'));
+				        add(sunkypose); 
+				        FlxTween.tween(sunkypose, {y: 2000}, 20, { ease: FlxEase.linear});
+				   } 
 					
 				case 1424:
 				   camGame.alpha = 0;
