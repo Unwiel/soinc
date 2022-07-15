@@ -3266,7 +3266,7 @@ Wilde\n\n';
                    {
                      case 1:
                          
-                        sunkypose.x = 2000;
+                        sunkypose.x = -2000;
                         sunkypose.y = -2000;
                         
 				        sunkypose.loadGraphic(Paths.image('sunky/sunkyPose', 'exe'));
@@ -3275,14 +3275,14 @@ Wilde\n\n';
 				       
 				     case 2:
 				        
-				        sunkypose.x = 2000;
+				        sunkypose.x = -2000;
                         sunkypose.y = -2000;
 				        sunkypose.loadGraphic(Paths.image('sunky/cereal', 'exe'));
 				        
 				        FlxTween.tween(sunkypose, {x: 6000, y: 6000}, 30, { ease: FlxEase.linear});
 				     case 3:
 				        
-				        sunkypose.x = 2000;
+				        sunkypose.x = -2000;
                         sunkypose.y = -2000;
 				        sunkypose.loadGraphic(Paths.image('sunky/sunkyMunch', 'exe'));
 				       
