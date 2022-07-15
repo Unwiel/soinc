@@ -246,6 +246,8 @@ class Character extends FlxSprite
 				animation.addByPrefix('singRIGHT', 'singRIGHT', 24);
 				animation.addByPrefix('singDOWN', 'singDOWN', 24);
 				animation.addByPrefix('singLEFT', 'singLEFT', 24);
+				animation.addByIndices('smile', 'creepysmile', [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15], 24, false);
+				animation.addByIndices('laugh', 'creepystare', [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15], 24, true);
 			
 	
 				addOffset('idle', 77, -50);
@@ -253,6 +255,8 @@ class Character extends FlxSprite
 				addOffset("singRIGHT", -306, -49);
 				addOffset("singLEFT", 287, -80);
 				addOffset("singDOWN", 130, -171);
+				addOffset("laugh", -200, -230);
+				addOffset("smile", -200, -230);
 			
 				antialiasing = false;
 				scale.set(1.05,1.05);
@@ -405,7 +409,7 @@ class Character extends FlxSprite
 				animation.addByPrefix('singDOWN', 'singDOWN0', 24, false);
 				animation.addByPrefix('singUPmiss', 'singUPmiss', 24, false);
 				animation.addByPrefix('singLEFTmiss', 'singLEFTmiss', 24, false);
-				animation.addByPrefix('singRIGHTmiss', 'singRIGHTmiss', 24, false);
+				animation.addByPrefix('singRIGHTmiss', 'singRIGHTmiss, 24, false);
 				animation.addByPrefix('singDOWNmiss', 'singDOWNmiss', 24, false);
 				animation.addByPrefix('hey', 'BF HEY', 24, false);
 

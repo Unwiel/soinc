@@ -500,6 +500,7 @@ class PlayState extends MusicBeatState
 			
 			     
 			    sunkypose = new FlxSprite();
+			sunkypose.cameras = [sunky]; 
 				
                 
 			
@@ -739,7 +740,7 @@ class PlayState extends MusicBeatState
 		iconP2.cameras = [camHUD];
 		scoreTxt.cameras = [camHUD];
 		doof.cameras = [camHUD];
-		sunkypose.cameras = [sunky]; 
+		
 		startCircle.cameras = [camDialogue];
 		blackFuck.cameras = [camDialogue]; 
 		if (FlxG.save.data.songPosition)
@@ -3098,13 +3099,32 @@ Wilde\n\n';
 		{
 			switch(curStep)
 			{
+			    case 1:
+			       dad.playAnim('laugh', true);
+			       
+							FlxG.camera.zoom = 0.9; 
+							defaultCamZoom = 0.9; 
+						
 				case 20:
 					FlxTween.tween(dad, {alpha: 1}, 3);
 				cpuStrums.forEach(function(spr:FlxSprite)
 				{
 					spr.alpha = 0;
 				});
-			
+				
+				case 124:
+				   dad.playAnim('smile', false);
+				 
+				
+				case 128:
+			       FlxTween.tween(FlxG.camera, {zoom: 0.8}, 1,  {
+						ease: FlxEase.quadInOut,
+						onComplete: function(twn:FlxTween)
+						 {
+							FlxG.camera.zoom = 0.8; 
+							defaultCamZoom = 0.8; 
+						} 
+					});
 
 				case 60:
 					FlxTween.tween(camHUD, {alpha: 1}, 10);
