@@ -246,8 +246,8 @@ class Character extends FlxSprite
 				animation.addByPrefix('singRIGHT', 'singRIGHT', 24);
 				animation.addByPrefix('singDOWN', 'singDOWN', 24);
 				animation.addByPrefix('singLEFT', 'singLEFT', 24);
-				animation.addByIndices('smile', 'creepysmile', [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15], 24, false);
-				animation.addByIndices('laugh', 'creepystare', [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15], 24, true);
+				animation.addByPrefix('smile', 'creepysmile', 24, false);
+				animation.addByPrefix('laugh', 'creepystare', 24, true);
 			
 	
 				addOffset('idle', 77, -50);
