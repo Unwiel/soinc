@@ -332,7 +332,7 @@ class PlayState extends MusicBeatState
 					scrollBG.lowestCamZoom = 0.6;
 					scrollBG.x = 50;
 					scrollBG.y = -780;
-					scrollBG.scale.set(1.2,1.2);
+					scrollBG.scale.set(2.4,2.4);
 					scrollBG.alpha = 0;
 					scrollBG.antialiasing = false;
 					add(scrollBG);
@@ -346,7 +346,7 @@ class PlayState extends MusicBeatState
 					floor.y = -500;
 					floor.updateHitbox();
 					floor.antialiasing = false;
-					floor.scale.set(1.2,0.8);
+					floor.scale.set(2.4,1.6);
 					add(floor);
 					
 					
