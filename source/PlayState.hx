@@ -527,13 +527,13 @@ class PlayState extends MusicBeatState
 				fatalbg1.frames = Paths.getSparrowAtlas('fatal/launchbase', 'exe');
 				fatalbg1.animation.addByPrefix('ye', 'idle0', 24, true);
 				fatalbg1.antialiasing = true; 
-				add(bg1);
+				add(fatalbg1);
 				
 				fatalbg2 = new FlxSprite(-200, -100);
 				fatalbg2.frames = Paths.getSparrowAtlas('fatal/domain2', 'exe');
 				fatalbg2.animation.addByPrefix('ye', 'idle0', 24, true);
 				fatalbg2.antialiasing = true;
-				fataladd(bg2);
+				add(fatalbg2);
 				fatalbg2.visible = false;
 				
 				ok1 = new FlxSprite().loadGraphic(Paths.image('sunky/4_3 shit', 'exe'));
