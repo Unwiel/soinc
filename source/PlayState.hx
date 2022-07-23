@@ -205,9 +205,9 @@ class PlayState extends MusicBeatState
     var startCircle:FlxSprite;
     var blackFuck:FlxSprite; 
     //fatal
-    var bg1:FlxSprite;  
-    var bg2:FlxSprite; 
-    var bg3:FlxSprite; 
+    var fatalbg1:FlxSprite;  
+    var fatalbg2:FlxSprite; 
+    var fatalbg3:FlxSprite; 
 	
 
 	#if windows
@@ -523,18 +523,18 @@ class PlayState extends MusicBeatState
 			case 'fatality':
 				defaultCamZoom = 1.02;
 				
-				bg1 = new FlxSprite(-200, -100);
-				bg1.frames = Paths.getSparrowAtlas('fatal/launchbase', 'exe');
-				bg1.animation.addByPrefix('ye', 'idle0', 24, true);
-				bg1.antialiasing = true; 
+				fatalbg1 = new FlxSprite(-200, -100);
+				fatalbg1.frames = Paths.getSparrowAtlas('fatal/launchbase', 'exe');
+				fatalbg1.animation.addByPrefix('ye', 'idle0', 24, true);
+				fatalbg1.antialiasing = true; 
 				add(bg1);
 				
-				bg2 = new FlxSprite(-200, -100);
-				bg2.frames = Paths.getSparrowAtlas('fatal/domain2', 'exe');
-				bg2.animation.addByPrefix('ye', 'idle0', 24, true);
-				bg2.antialiasing = true;
-				add(bg2);
-				bg2.visible = false;
+				fatalbg2 = new FlxSprite(-200, -100);
+				fatalbg2.frames = Paths.getSparrowAtlas('fatal/domain2', 'exe');
+				fatalbg2.animation.addByPrefix('ye', 'idle0', 24, true);
+				fatalbg2.antialiasing = true;
+				fataladd(bg2);
+				fatalbg2.visible = false;
 				
 				ok1 = new FlxSprite().loadGraphic(Paths.image('sunky/4_3 shit', 'exe'));
 				add(ok1);
