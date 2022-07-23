@@ -622,6 +622,7 @@ class PlayState extends MusicBeatState
 			    dad.x = -300;	 
 				dad.y = 200;
                 remove(gf); 
+                
 			case 'tailsp2':
 				camHUD.alpha = 0;	
 				boyfriend.x = 450;
