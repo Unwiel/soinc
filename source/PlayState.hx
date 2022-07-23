@@ -204,6 +204,10 @@ class PlayState extends MusicBeatState
     var ohno:FlxSprite; 
     var startCircle:FlxSprite;
     var blackFuck:FlxSprite; 
+    //fatal
+    var bg1:FlxSprite;  
+    var bg2:FlxSprite; 
+    var bg3:FlxSprite; 
 	
 
 	#if windows
@@ -318,6 +322,9 @@ class PlayState extends MusicBeatState
 				SONG.stage = 'fuck';
 				SONG.player1 = 'sonicRUN';
 				SONG.player2 = 'SonicR';
+				
+			case 'fatalty':
+				SONG.noteStyle = 'pixel';	
 		}
 
 		switch (SONG.stage)
@@ -512,7 +519,27 @@ class PlayState extends MusicBeatState
 				ok1 = new FlxSprite().loadGraphic(Paths.image('sunky/4_3 shit', 'exe'));
 				add(ok1);
 				ok1.cameras = [camDialogue];
-
+				
+			case 'fatality':
+				defaultCamZoom = 1.02;
+				
+				bg1 = new FlxSprite(-200, -100);
+				bg1.frames = Paths.getSparrowAtlas('fatal/launchbase', 'exe');
+				bg1.animation.addByPrefix('ye', 'idle0', 24, true);
+				bg1.antialiasing = true; 
+				add(bg1);
+				
+				bg2 = new FlxSprite(-200, -100);
+				bg2.frames = Paths.getSparrowAtlas('fatal/domain2', 'exe');
+				bg2.animation.addByPrefix('ye', 'idle0', 24, true);
+				bg2.antialiasing = true;
+				add(bg2);
+				bg2.visible = false;
+				
+				ok1 = new FlxSprite().loadGraphic(Paths.image('sunky/4_3 shit', 'exe'));
+				add(ok1);
+				ok1.cameras = [camDialogue];
+				
 			default:
 				defaultCamZoom = 0.9;
 				curStage = 'stage';
@@ -700,6 +727,9 @@ class PlayState extends MusicBeatState
 				
 			case 'milk':
 				healthBar.createFilledBar(0xFF2648FB, 0xFF31B0D1);	
+				
+			case 'fatalty':
+				healthBar.createFilledBar(0xFFE71530, 0xFF31B0D1);	
 				
 		}
 
@@ -976,8 +1006,9 @@ Wilde\n\n';
 			{
 				if (value == curStage)
 				{
+				   altSuffix = 'fatal_';
 					introAlts = introAssets.get(value);
-					altSuffix = '-pixel';
+					
 				}
 			}
 
@@ -985,13 +1016,13 @@ Wilde\n\n';
 
 			{
 				case 0:
-					//FlxG.sound.play(Paths.sound('intro3' + altSuffix), 0.6);
+					FlxG.sound.play(Paths.sound('intro3' + altSuffix), 0.6);
 				case 1:
 					var ready:FlxSprite = new FlxSprite().loadGraphic(Paths.image(introAlts[0]));
 					ready.scrollFactor.set();
 					ready.updateHitbox();
 
-					if (curStage.startsWith('school'))
+					if (curStage.startsWith('fatality'))
 						ready.setGraphicSize(Std.int(ready.width * daPixelZoom));
 
 					ready.screenCenter();
@@ -1003,12 +1034,13 @@ Wilde\n\n';
 							ready.destroy();
 						}
 					});
-					//FlxG.sound.play(Paths.sound('intro2' + altSuffix), 0.6);
+					if (curStage.startsWith('fatality'))
+					  FlxG.sound.play(Paths.sound(altSuffix + 'intro2'), 0.6);
 				case 2:
 					var set:FlxSprite = new FlxSprite().loadGraphic(Paths.image(introAlts[1]));
 					set.scrollFactor.set();
 
-					if (curStage.startsWith('school'))
+					if (curStage.startsWith('fatality'))
 						set.setGraphicSize(Std.int(set.width * daPixelZoom));
 
 					set.screenCenter();
@@ -1020,12 +1052,13 @@ Wilde\n\n';
 							set.destroy();
 						}
 					});
-					//FlxG.sound.play(Paths.sound('intro1' + altSuffix), 0.6);
+					if (curStage.startsWith('fatality'))
+					 FlxG.sound.play(Paths.sound(altSuffix + 'intro1'), 0.6);
 				case 3:
 					var go:FlxSprite = new FlxSprite().loadGraphic(Paths.image(introAlts[2]));
 					go.scrollFactor.set();
 
-					if (curStage.startsWith('school'))
+					if (curStage.startsWith('fatality'))
 						go.setGraphicSize(Std.int(go.width * daPixelZoom));
 
 					go.updateHitbox();
@@ -1039,7 +1072,8 @@ Wilde\n\n';
 							go.destroy();
 						}
 					});
-					//FlxG.sound.play(Paths.sound('introGo' + altSuffix), 0.6);
+					if (curStage.startsWith('fatality'))
+					 FlxG.sound.play(Paths.sound(altSuffix + 'introGo'), 0.6);
 				case 4:
 			}
 
@@ -1262,7 +1296,12 @@ Wilde\n\n';
 			switch (SONG.noteStyle)
 			{
 				case 'pixel':
-					babyArrow.loadGraphic(Paths.image('pixelUI/NOTE_assets'), true, 17, 17);
+				    if (SONG.song.toLowerCase() == 'fatalty')
+		            {
+						if (player == 0)
+						    babyArrow.loadGraphic(Paths.image('pixelUI/NOTE_assets'), true, 17, 17);
+			        } 
+			        babyArrow.loadGraphic(Paths.image('pixelUI/fatal'), true, 17, 17);
 					babyArrow.animation.add('green', [6]);
 					babyArrow.animation.add('red', [7]);
 					babyArrow.animation.add('blue', [5]);
@@ -2096,7 +2135,7 @@ Wilde\n\n';
 								{
 									spr.animation.play('confirm', true);
 								}
-								if (spr.animation.curAnim.name == 'confirm' && !curStage.startsWith('school'))
+								if (spr.animation.curAnim.name == 'confirm' && !curStage.startsWith('fatalty'))
 								{
 									spr.centerOffsets();
 									spr.offset.x -= 13;
@@ -2433,7 +2472,7 @@ Wilde\n\n';
 			var pixelShitPart1:String = "";
 			var pixelShitPart2:String = '';
 	
-			if (curStage.startsWith('school'))
+			if (curStage.startsWith('fatalty'))
 			{
 				pixelShitPart1 = 'weeb/pixelUI/';
 				pixelShitPart2 = '-pixel';
@@ -2517,7 +2556,7 @@ Wilde\n\n';
 			currentTimingShown.velocity.x += comboSpr.velocity.x;
 			if(!FlxG.save.data.botplay) add(rating);
 	
-			if (!curStage.startsWith('school'))
+			if (!curStage.startsWith('fatalty'))
 			{
 				rating.setGraphicSize(Std.int(rating.width * 0.7));
 				rating.antialiasing = true;
@@ -2563,7 +2602,7 @@ Wilde\n\n';
 				numScore.x = rating.x + (43 * daLoop) - 50;
 				numScore.y = rating.y + 100;
 
-				if (!curStage.startsWith('school'))
+				if (!curStage.startsWith('fatalty'))
 				{
 					numScore.antialiasing = true;
 					numScore.setGraphicSize(Std.int(numScore.width * 0.5));
@@ -2830,7 +2869,7 @@ Wilde\n\n';
 					if (!holdArray[spr.ID])
 						spr.animation.play('static');
 		 
-					if (spr.animation.curAnim.name == 'confirm' && !curStage.startsWith('school'))
+					if (spr.animation.curAnim.name == 'confirm' && !curStage.startsWith('fatalty'))
 					{
 						spr.centerOffsets();
 						spr.offset.x -= 13;

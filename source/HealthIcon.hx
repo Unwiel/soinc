@@ -21,6 +21,27 @@ class HealthIcon extends FlxSprite
 				loadGraphic(Paths.image('icons/icon-sonic'), true, 150, 150);
 
 				animation.add('sonicRUN', [0, 1], 0, false, isPlayer);
+				
+			case 'fatal-sonic':
+				antialiasing = true;
+
+				loadGraphic(Paths.image('icons/icon-fatal-sonic'), true, 150, 150);
+
+				animation.add('fatal-sonic', [0, 1], 0, false, isPlayer);
+				
+			case 'fatal-glitched':
+				antialiasing = true;
+
+				loadGraphic(Paths.image('icons/icon-true-fatal'), true, 150, 150);
+
+				animation.add('fatal-glitched', [0, 1], 0, false, isPlayer);
+				
+			case 'bf-fatal':
+				antialiasing = true;
+
+				loadGraphic(Paths.image('icons/icon-bf-fatal'), true, 150, 150);
+
+				animation.add('bf-fatal', [0, 1], 0, false, isPlayer);
 			
 				case 'redhead':
 					antialiasing = true;

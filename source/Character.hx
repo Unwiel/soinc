@@ -428,6 +428,116 @@ class Character extends FlxSprite
 				playAnim('idle');
 
 				flipX = true;
+				
+			case 'bf-fatal':
+				var tex = Paths.getSparrowAtlas('characters/fatal-bf', 'shared');
+				frames = tex;
+
+				animation.addByPrefix('idle', 'Idle', 24, true);
+				animation.addByPrefix('singUP', 'Up', 24, false);
+				animation.addByPrefix('singLEFT', 'Left', 24, false);
+				animation.addByPrefix('singRIGHT', 'Right', 24, false);
+				animation.addByPrefix('singDOWN', 'Down', 24, false);
+				animation.addByPrefix('singUPmiss', 'MUp', 24, false);
+				animation.addByPrefix('singLEFTmiss', 'MLeft', 24, false);
+				animation.addByPrefix('singRIGHTmiss', 'MRight', 24, false);
+				animation.addByPrefix('singDOWNmiss', 'MDown', 24, false);
+	
+				addOffset('idle', -6);
+				addOffset("singUP", 1, 8);
+				addOffset("singRIGHT", -4, -2);
+				addOffset("singLEFT", -5, -3);
+				addOffset("singDOWN", -1);
+				addOffset("singUPmiss", 4, 7);
+				addOffset("singRIGHTmiss", 6, 2);
+				addOffset("singLEFTmiss", 7, -1);
+				addOffset("singDOWNmiss", 5, 1);
+	
+				playAnim('idle');
+				
+				flipX = true;
+				antialiasing = false;
+			    scale.set(4,4);
+			
+		    case 'bf-fatal-small':
+				var tex = Paths.getSparrowAtlas('characters/tiny-bf', 'shared');
+				frames = tex;
+
+				animation.addByPrefix('idle', 'Idle', 24, true);
+				animation.addByPrefix('singUP', 'Up', 24, false);
+				animation.addByPrefix('singRIGHT', 'Left', 24, false);
+				animation.addByPrefix('singLEFT', 'Right', 24, false);
+				animation.addByPrefix('singDOWN', 'Down', 24, false);
+				animation.addByPrefix('singUPmiss', 'MUp', 24, false);
+				animation.addByPrefix('singLEFTmiss', 'MLeft', 24, false);
+				animation.addByPrefix('singRIGHTmiss', 'MRight', 24, false);
+				animation.addByPrefix('singDOWNmiss', 'MDown', 24, false);
+	
+				addOffset('idle', -5, -1);
+				addOffset("singUP", -6, 1);
+				addOffset("singLEFT", -5, -1);
+				addOffset("singRIGHT", -6, -1);
+				addOffset("singDOWN", -5, -1);
+				addOffset("singUPmiss", 4, 7);
+				addOffset("singRIGHTmiss", 6, 2);
+				addOffset("singLEFTmiss", 7, -1);
+				addOffset("singDOWNmiss", 5, 1);
+	
+				playAnim('idle');
+				
+				flipX = true;
+				antialiasing = false;
+			    scale.set(4, 4);
+			
+			case 'fatal-sonic':
+				var tex = Paths.getSparrowAtlas('characters/fatal-error-sonic', 'shared');
+				frames = tex;
+
+				animation.addByPrefix('idle', 'Fatal sonic idle', 24, true);
+				animation.addByPrefix('singUP', 'Fatal sonic up', 24, false);
+				animation.addByPrefix('singLEFT', 'Fatal sonic left', 24, false);
+				animation.addByPrefix('singRIGHT', 'Fatal sonic right', 24, false);
+				animation.addByPrefix('singDOWN', 'Fatal sonic down', 24, false);
+			
+
+				addOffset('idle', 4, 519);
+				addOffset("singUP", 4, 519);
+				addOffset("singRIGHT", 4, 519);
+				addOffset("singLEFT", 4, 519);
+				addOffset("singDOWN", 4, 519);
+				
+				
+				
+	
+				playAnim('idle');
+				
+				antialiasing = false;
+			    scale.set(4.00000000000001, 4.00000000000001);
+			
+			case 'fatal-glitched':
+				var tex = Paths.getSparrowAtlas('characters/fatal-error-sonic-glitched', 'shared');
+				frames = tex;
+
+				animation.addByPrefix('idle', 'Fatal sonic idle', 24, true);
+				animation.addByPrefix('singUP', 'Fatal sonic up', 24, false);
+				animation.addByPrefix('singLEFT', 'Fatal sonic left', 24, false);
+				animation.addByPrefix('singRIGHT', 'Fatal sonic right', 24, false);
+				animation.addByPrefix('singDOWN', 'Fatal sonic down', 24, false);
+			
+
+				addOffset('idle', 4, 519);
+				addOffset("singUP", 4, 519);
+				addOffset("singRIGHT", 4, 519);
+				addOffset("singLEFT", 4, 519);
+				addOffset("singDOWN", 4, 519);
+				
+				
+				
+	
+				playAnim('idle');
+				
+				antialiasing = false;
+			    scale.set(4.00000000000001, 4.00000000000001);
 
 		}
 
