@@ -323,7 +323,7 @@ class PlayState extends MusicBeatState
 				SONG.player1 = 'sonicRUN';
 				SONG.player2 = 'SonicR';
 				
-			case 'fatalty':
+			case 'fatality':
 				SONG.noteStyle = 'pixel';	
 		}
 
@@ -523,10 +523,12 @@ class PlayState extends MusicBeatState
 			case 'fatality':
 				defaultCamZoom = 1.02;
 				
-				fatalbg1 = new FlxSprite(-200, -100);
+				fatalbg1 = new FlxSprite(-1050, -1110);
 				fatalbg1.frames = Paths.getSparrowAtlas('fatal/launchbase', 'exe');
-				fatalbg1.animation.addByPrefix('ye', 'idle0', 24, true);
+				fatalbg1.animation.addByPrefix('ye2', 'idle', 24, true);
 				fatalbg1.antialiasing = true; 
+				fatalbg1.scale.x = 6;
+			    fatalbg1.scale.y = 6;
 				add(fatalbg1);
 				
 				fatalbg2 = new FlxSprite(-200, -100);
@@ -615,7 +617,11 @@ class PlayState extends MusicBeatState
 				boyfriend.x = 920;
 				gf.x -= 100;
 				gf.y += 150;
-
+				
+			case 'fatality':
+			    dad.x = -300;	 
+				dad.y = 200;
+                remove(gf); 
 			case 'tailsp2':
 				camHUD.alpha = 0;	
 				boyfriend.x = 450;
@@ -734,7 +740,7 @@ class PlayState extends MusicBeatState
 			case 'milk':
 				healthBar.createFilledBar(0xFF2648FB, 0xFF31B0D1);	
 				
-			case 'fatalty':
+			case 'fatality':
 				healthBar.createFilledBar(0xFFE71530, 0xFF31B0D1);	
 				
 		}
@@ -744,6 +750,11 @@ class PlayState extends MusicBeatState
 		scoreTxt.scrollFactor.set();
 		scoreTxt.borderSize = 1.25;
 		add(scoreTxt);
+		
+		if (SONG.song.toLowerCase() == 'fatality' && SONG.song.toLowerCase() == 'prey')
+        {
+            scoreTxt.visible = false;
+        } 
 
 		replayTxt = new FlxText(healthBarBG.x + healthBarBG.width / 2 - 75, healthBarBG.y + (FlxG.save.data.downscroll ? 100 : -100), 0, "REPLAY", 20);
 		replayTxt.setFormat(Paths.font("vcr.ttf"), 42, FlxColor.WHITE, RIGHT, FlxTextBorderStyle.OUTLINE,FlxColor.BLACK);
@@ -1302,7 +1313,7 @@ Wilde\n\n';
 			switch (SONG.noteStyle)
 			{
 				case 'pixel':
-				    if (SONG.song.toLowerCase() == 'fatalty')
+				    if (SONG.song.toLowerCase() == 'fatality')
 		            {
 						if (player == 0)
 						    babyArrow.loadGraphic(Paths.image('pixelUI/NOTE_assets'), true, 17, 17);
@@ -1440,7 +1451,7 @@ Wilde\n\n';
 				spr.centerOffsets(); //CPU arrows start out slightly off-center
 			});
 			
-			if (SONG.song.toLowerCase() == 'milk')
+			if (SONG.song.toLowerCase() == 'milk' && SONG.song.toLowerCase() == '' )
 		    {
                  if (player == 0)
                      babyArrow.x += 140;
