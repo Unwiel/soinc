@@ -540,6 +540,12 @@ class PlayState extends MusicBeatState
 				add(ok1);
 				ok1.cameras = [camDialogue];
 				
+				var cursor:FlxSprite = new FlxSprite();
+                cursor.loadGraphic(Paths.image('fatal_mouse_cursor', 'shared'));
+                cursor.antialiasing = true;
+                FlxG.mouse.load(cursor.pixels);
+                FlxG.mouse.visible = true;
+				
 			default:
 				defaultCamZoom = 0.9;
 				curStage = 'stage';
