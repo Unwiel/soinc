@@ -3,4 +3,4 @@ Soulless:bf:1
 Too-Slow-Encore:bf:1
 Round-A-Bout:bf:1
 milk:sunky:1
-fatalty:fatal-sonic:1
+fatality:fatal-sonic:1
